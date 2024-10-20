@@ -5,15 +5,13 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    weather = None
+    insult = None
     if request.method == 'POST':
-        city = request.form['city']
-        weather = get_weather(city)
-    return render_template("index.html", weather=weather)
+        insult = get_insult()
+    return render_template("index.html", insult=insult)
 
-def get_weather(city):
-    api_key = "e4dc5c5b8795b7f64925f2ecf2207301"
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+def get_insult():
+    url = f'https://evilinsult.com/generate_insult.php?lang=ru&type=json'
     resource = requests.get(url)
     return resource.json()
 

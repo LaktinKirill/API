@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Погода по городам</title>
+    <title>Генератор оскорбоений</title>
     <!-- Подключение Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Сайт с прогнозом погоды в любой точке мира</h1>
+    <h1 class="text-center mb-4">Сайт с оскорблениями</h1>
     <form method="post" class="form-inline justify-content-center mb-4">
-        <input type="text" name="city" class="form-control mr-2" placeholder="Введите название города" required>
-        <button type="submit" class="btn btn-primary">Узнать погоду</button>
+        <button type="submit" class="btn btn-primary">Запросить оскорбление</button>
     </form>
 
     <div class="result text-center">
-        {% if weather %}
-            <h3>Погода в {{weather['name']}}</h3>
-            <p>Температура: {{weather['main']['temp']}}°C</p>
-            <p>Погода: {{weather['weather'][0]['description']}}</p>
+        {% if insult %}
+            <h3>Оскорбление: {{insult['insult']}}</h3>
         {% endif %}
     </div>
 </div>
